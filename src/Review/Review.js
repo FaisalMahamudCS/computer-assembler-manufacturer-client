@@ -1,0 +1,23 @@
+import React, { useEffect, useState } from 'react';
+import Reviews from '../Reviews/Reviews';
+
+const Review = () => {
+    const [review,setReview]=useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/review')
+        .then(res => res.json())
+        .then(data => setReview(data));
+        console.log(review)
+    })
+    return (
+        <div className='container'>
+        <div className='grid lg:grid-cols-3  grid-cols-1 gap-3'>
+            {
+                review.map(review=><Reviews review={review} key={review._id}></Reviews>)
+            }
+        </div>
+        </div>
+    );
+};
+
+export default Review;

@@ -1,0 +1,32 @@
+[
+    {
+        "name":"Adamson William",
+        "description":"I got the best motherboard from them",
+        "photo":"https://i.ibb.co/7YK9hS6/review-1.jpg",
+        "rating":4
+    },
+    {
+      "name":"Jany ",
+      "description":"I bought motherboard from them and i am getting service",
+      "photo":"https://i.ibb.co/FxdjRk1/review-2.jpg",
+      "rating":5
+    },
+    {
+    "name":"Kane Williamson",
+    "description":"I bought ram .TIll now no problem",
+    "photo":"https://i.ibb.co/fMTCZSR/review-3.jpg",
+    "rating":4
+  },
+  {
+    "name":"Adam",
+    "description":"I got the best service",
+    "photo":"https://i.ibb.co/59tBH4C/review-4.jpg",
+    "rating":5
+  },
+  {
+    "name":"Kerl Anderson",
+    "description":"I bought power supply from the and till now it is good",
+    "photo":"https://i.ibb.co/vs9JC6K/review-5.jpg",
+    "rating":4
+  }
+]
