@@ -1,7 +1,12 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const Parts = (props) => {
-    const {name,image,description,minimumQuantity,availableQuantity,price}=props.part;
+    const {_id,name,image,description,minimumQuantity,availableQuantity,price}=props.part;
+    const navigate=useNavigate();
+    const   partdetailsNavigation=(_id)=>{
+    navigate(`/purchase/${_id}`)
+    
+    } 
     return (
         
            <div class="card w-96 bg-base-100 shadow-xl">
@@ -14,7 +19,7 @@ const Parts = (props) => {
     <p>Price:{price}$</p>
 
     <div class="card-actions justify-center">
-      <button class="btn btn-primary">Buy Now</button>
+      <button class="btn btn-primary" onClick={()=>partdetailsNavigation(_id)}>Buy Now</button>
     </div>
   </div>
 </div> 
