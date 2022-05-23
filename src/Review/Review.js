@@ -10,7 +10,8 @@ const Review = () => {
         console.log(review)
     })
     return (
-        <div className='container'>
+        <div className='container mx-auto'>
+            
         <div className='grid lg:grid-cols-3  grid-cols-1 gap-3'>
             {
                 review.map(review=><Reviews review={review} key={review._id}></Reviews>)

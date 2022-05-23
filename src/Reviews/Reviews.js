@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactStars from "react-rating-stars-component";
 const Reviews = (props) => {
-    const {_id,name,description,photo,review}=props.review;
+    const {_id,name,description,photo,rating}=props.review;
     return (
         <div class="card w-96 bg-base-100 shadow-xl">
         <figure><img src={photo} alt="Shoes" /></figure>
@@ -11,8 +11,9 @@ const Reviews = (props) => {
         
           <ReactStars
     count={5}
-   value={review}
+   value={rating}
     size={24}
+    edit={false}
     activeColor="#ffd700"
   />
         
