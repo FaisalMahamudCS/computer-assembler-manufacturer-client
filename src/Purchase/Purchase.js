@@ -74,7 +74,11 @@ const quantityDecrement=()=>{
     console.log(priceing)
 }
 const changeHandle = e => {
-    setInput(quantity)
+    //setInput(quantity)
+    let a=e.target.value;
+    console.log(parseInt(a))
+    setInput(a)
+    setQuantity(a);
    setPriceing(quantity*priceing)
 }
 const changeHandleing = e => {
