@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
+import { ToastContainer, toast } from 'react-toastify'
 const Purchase = () => {
     const { id } = useParams();
     const [disabled,setDisabled]=useState(false);
@@ -46,10 +47,10 @@ const Purchase = () => {
             .then(data => {
                 if(data.success){
                     alert('added')
-                    //toast(`Appointment is set, ${formattedDate} at ${slot}`)
+                    toast('order placed')
                 }
                 else{
-                   // toast.error(`Already have and appointment on ${data.booking?.date} at ${data.booking?.slot}`)
+                    toast.error(`Failed`)
                 }
                 
             });
@@ -120,7 +121,7 @@ const changeHandleing = e => {
   <div className="flex">
                             <button  type='button' className="btn btn-circle btn-outline" onClick={quantityIncrement}>
                             <span className='text-2xl'>+</span> 
-</button>    <input type="number"  onChange={changeHandle} name="phone" placeholder="Phone Number" defaultValue={quantity} className="input input-bordered " />
+</button>    <input type="number"  onChange={changeHandle} name="quantity" placeholder="Quantity" defaultValue={quantity} className="input input-bordered " />
 <button type='button' className="btn btn-circle btn-outline"  onClick={quantityDecrement} >
   {/* <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg> */}
  <span className='text-2xl'>-</span> 
@@ -134,7 +135,7 @@ const changeHandleing = e => {
     <span class="label-text">Price</span>
    
   </label>
-  <input type="number"   name="phone" placeholder="Phone Number"  onChange={changeHandleing} defaultValue={priceing} disabled className="input input-bordered " />
+  <input type="number"   name="price" placeholder="price"  onChange={changeHandleing} defaultValue={priceing} disabled className="input input-bordered " />
 
 </div>
 

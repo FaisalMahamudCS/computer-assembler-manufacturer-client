@@ -33,22 +33,23 @@ const Header = () => {
       </ul>
     </div>
    
-    <a class="btn btn-ghost normal-case text-xl"> Manufacturer</a>
+    {/* <a class="btn btn-ghost normal-case text-xl"> Manufacturer</a> */}
+    <Link className='btn btn-ghost normal-case text-xl' to='/'>Manufacturer</Link>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal p-0">
     
       <li tabindex="0">
-        <a>
+        {/* <a>
           Parent
           <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-        </a>
+        </a> */}
         <ul class="p-2">
          
         </ul>
       </li>
-      <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
-      <li><Link to='/login'>Login</Link></li>
+      <li>{user ? <><button className="btn btn-ghost" onClick={logout} >Sign Out</button> <Link to='/dashboard'>DashBoard</Link></>  :<><Link to="/login">Login</Link></> }</li>
+      
       <li><Link to='/blog'>Blog</Link></li>
       <li><Link to='/portfolio'>Portfolio</Link></li>
     </ul>
