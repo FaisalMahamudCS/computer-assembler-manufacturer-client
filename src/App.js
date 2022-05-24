@@ -17,6 +17,11 @@ import MyOrders from './DashBoard/MyOrders';
 import AddReview from './DashBoard/AddReview';
 import MyProfile from './DashBoard/MyProfile';
 import Payment from './DashBoard/Payment';
+import ManageOrder from './DashBoard/ManageOrder'
+import RequireAdmin from './RequireAdmin/RequireAdmin';
+import AddProduct from './DashBoard/AddProduct';
+import MakeAdmin from './DashBoard/MakeAdmin';
+
 function App() {
   return (
     <div className="App">
@@ -32,11 +37,11 @@ function App() {
        <Route path="dashboard" element={<RequireAuth><DashBoard /></RequireAuth>} >
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path="review" element={<AddReview></AddReview>}></Route>
-          <Route path="profile" element={<MyProfile></MyProfile>}></Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
-          {/* <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
-          <Route path="addDoctor" element={<RequireAdmin><AddDoctor></AddDoctor></RequireAdmin>}></Route>
-          <Route path="manageDoctor" element={<RequireAdmin><ManageDoctors></ManageDoctors></RequireAdmin>}></Route> */}
+           <Route path="manageOrder" element={<RequireAdmin> <ManageOrder></ManageOrder> </RequireAdmin>}></Route>
+          <Route path="addProduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+          <Route path="makeAdmin" element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>}></Route> 
         </Route>
 
        <Route path='/purchase/:id' element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
