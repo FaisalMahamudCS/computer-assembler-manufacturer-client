@@ -11,12 +11,14 @@ const Part = () => {
     
   
     return (
+        <div className='container mt-5 mb-10 mx-auto'>
         <div>
-        
+        <h1 className='text-2xl m-2 text-center'>Our Manufactured Parts</h1>
             <div className='grid lg:grid-cols-3  grid-cols-1 gap-4'>
           {
               part.map(part=> <Parts part={part}></Parts>)
           }
+            </div>
             </div>
         </div>
     );

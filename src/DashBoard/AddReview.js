@@ -133,9 +133,9 @@ const AddReview = () => {
                     </label>
                     <input
                         type="number"
-                        placeholder="Enter Review"
+                        placeholder="Enter Rating"
                         className="input input-bordered w-full max-w-xs"
-                        {...register("review", {
+                        {...register("rating", {
                             required: {
                                 value: true,
                                 message: 'Review is Required'

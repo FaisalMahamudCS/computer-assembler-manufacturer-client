@@ -48,10 +48,10 @@ const Header = () => {
          
         </ul>
       </li>
-      <li>{user ? <><button className="btn btn-ghost" onClick={logout} >Sign Out</button> <Link to='/dashboard'>DashBoard</Link></>  :<><Link to="/login">Login</Link></> }</li>
+      <li>{user ? <><button className="btn btn-ghost" onClick={logout} >Logout Out</button> {user.displayName}  <Link to='/dashboard'>DashBoard</Link></>  :<><Link to="/login">Login</Link></> }</li>
       
       <li><Link to='/blog'>Blog</Link></li>
-      <li><Link to='/portfolio'>Portfolio</Link></li>
+      <li><Link to='/MyPortfolio'>Portfolio</Link></li>
     </ul>
   </div>
   <div class="navbar-end">

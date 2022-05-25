@@ -17,13 +17,14 @@ const DashBoard = () => {
             <div class="drawer-side">
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
+                <li><Link to="/dashboard/myprofile">My Profile</Link></li>
                 { !admin && <>
-                    <li><Link to="/dashboard">My Order</Link></li>
+                    <li><Link to="/dashboard/myOrder">My Order</Link></li>
                     <li><Link to="/dashboard/review"> Review</Link></li>
                     </>} 
                     {/* <li><Link to="/dashboard">My Order</Link></li>
                     <li><Link to="/dashboard/review"> Review</Link></li> */}
-                     <li><Link to="/dashboard/myprofile">My Profile</Link></li> 
+                     
                      { admin && <>
                         <li><Link to="/dashboard/manageOrder">Manage Orders</Link></li>
                         <li><Link to="/dashboard/addProduct">Add a product</Link></li>

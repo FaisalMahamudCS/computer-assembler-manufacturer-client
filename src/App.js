@@ -30,14 +30,15 @@ function App() {
        <Route path='/' element={<Home></Home>}></Route>
        <Route path='/blog' element={<Blog></Blog>}></Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>
-       <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
+       <Route path='/MyPortfolio' element={<Portfolio></Portfolio>}></Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/register' element={<Register></Register>}></Route>
        {/* <Route path='/dashboard' element={<RequireAuth><DashBoard></DashBoard></RequireAuth>}></Route> */}
        <Route path="dashboard" element={<RequireAuth><DashBoard /></RequireAuth>} >
-          <Route index element={<MyOrders></MyOrders>}></Route>
-          <Route path="review" element={<AddReview></AddReview>}></Route>
-          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+       <Route index  element={<MyProfile></MyProfile>}></Route>
+          <Route path='myOrder' element={<RequireAuth> <MyOrders></MyOrders></RequireAuth>}></Route>
+          <Route path="review" element={<RequireAuth><AddReview></AddReview></RequireAuth>}></Route>
+        
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
            <Route path="manageOrder" element={<RequireAdmin> <ManageOrder></ManageOrder> </RequireAdmin>}></Route>
           <Route path="addProduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>

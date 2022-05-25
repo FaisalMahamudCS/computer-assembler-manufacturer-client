@@ -33,7 +33,8 @@ const Purchase = () => {
             productName: name,
             email: user.email,
             userName: user.displayName,
-            phone: event.target.phone.value
+            phone: event.target.phone.value,
+            status:'pending'
         }
 
         fetch('http://localhost:5000/purchase', {
