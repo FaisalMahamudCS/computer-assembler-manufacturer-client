@@ -48,7 +48,7 @@ const Header = () => {
          
         </ul>
       </li>
-      <li>{user ? <><button className="btn btn-ghost" onClick={logout} >Logout Out</button> {user.displayName}  <Link to='/dashboard'>DashBoard</Link></>  :<><Link to="/login">Login</Link></> }</li>
+      <li>{user ? <><button className="btn btn-ghost" onClick={logout} >Logout</button><Link to='/'> {user.displayName}</Link>   <Link to='/dashboard'>DashBoard</Link></>  :<><Link to="/login">Login</Link></> }</li>
       
       <li><Link to='/blog'>Blog</Link></li>
       <li><Link to='/MyPortfolio'>Portfolio</Link></li>

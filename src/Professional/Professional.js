@@ -5,7 +5,7 @@ import Professionals from '../Professionals/Professionals';
 const Professional = () => {
     const [professional,setProfessional]=useState([]);
     useEffect(()=>{
-        fetch('engineer.json')
+        fetch('http://localhost:5000/professional')
         .then(res => res.json())
         .then(data => setProfessional(data));
       

@@ -11,12 +11,14 @@ const Purchase = () => {
     const [quantity,setQuantity]=useState('');
     const [input, setInput] = useState('')
     const [priceing,setPriceing]=useState('');
+    const [available,setAvailable]=useState('');
     const [prices,setPrices]=useState('')
     useEffect(() => {
         fetch(`http://localhost:5000/part/${id}`)
             .then(res => res.json())
             .then(data =>{ setPurchase(data)
             setQuantity(data.minimumQuantity)
+            setAvailable(data.availableQuantity)
             setPriceing(data.minimumQuantity*data.price)
             setPrices(data.price)
             }
@@ -24,7 +26,7 @@ const Purchase = () => {
     }, [id])
     const handlePurchase = event => {
         event.preventDefault();
-     
+      
 
         const purchase = {
             purchaseId: _id,
@@ -47,7 +49,29 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 if(data.success){
-                    alert('added')
+                  setAvailable(available-quantity);
+                  console.log(available-quantity);
+                  const availables=available-quantity;
+                 const availableQuantit={availables};
+          
+                  fetch(`http://localhost:5000/purchaseUpdate/${id}`, {
+                    method: 'PUT',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(availableQuantit)
+                    })
+                    .then(res =>res.json())
+                    .then(inserted =>{
+                        if(inserted.modifiedCount){
+                            toast.success('profile edited successfully')
+                        
+                        }
+                        else{
+                            toast.error('Failed profile edit');
+                        }
+                    })
                     toast('order placed')
                 }
                 else{
@@ -99,7 +123,7 @@ const changeHandleing = e => {
               <h2 class="card-title">{name}</h2>
     <p>{description}</p>
     <p>Minimum Quantity:{minimumQuantity}</p>
-    <p>Available Quantity:{availableQuantity}</p>
+    <p>Available Quantity:{available}</p>
     <p>Price:{price}$</p>
     
   </div>
