@@ -9,8 +9,9 @@ const DashBoard = () => {
     return (
         <div>
              <div class="drawer drawer-mobile">
-            <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
+            <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
             <div class="drawer-content">
+
                 <h2 className='text-2xl font-bold text-center'>Welcome to your Dashboard</h2>
                 <Outlet></Outlet>
             </div>
@@ -27,6 +28,7 @@ const DashBoard = () => {
                      
                      { admin && <>
                         <li><Link to="/dashboard/manageOrder">Manage Orders</Link></li>
+                        <li><Link to="/dashboard/manageProduct">Manage Product</Link></li>
                         <li><Link to="/dashboard/addProduct">Add a product</Link></li>
                         <li><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
                     </>} 

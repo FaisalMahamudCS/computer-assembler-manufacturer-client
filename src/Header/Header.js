@@ -20,6 +20,8 @@ const Header = () => {
       </label>
       <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><Link to='/blog'>Blog</Link></li>
+        <li>{user ? <><button className="btn btn-ghost" onClick={logout} >Logout</button><Link to='/'> {user.displayName}</Link>   <Link to='/dashboard'>DashBoard</Link></>  :<><Link to="/login">Login</Link></> }</li>
+        <li><Link to='/MyPortfolio'>Portfolio</Link></li>
         <li tabindex="0">
           <a class="justify-between">
             Parent
@@ -34,7 +36,7 @@ const Header = () => {
     </div>
    
     {/* <a class="btn btn-ghost normal-case text-xl"> Manufacturer</a> */}
-    <Link className='btn btn-ghost normal-case text-xl' to='/'>Manufacturer</Link>
+    <Link className='btn btn-ghost normal-case text-xl' to='/'>Computer Assembler</Link>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal p-0">
@@ -55,7 +57,10 @@ const Header = () => {
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn">Get started</a>
+  <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+           Sidebar
+                </label>
   </div>
 </div>
         </div>

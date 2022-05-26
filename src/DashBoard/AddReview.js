@@ -58,9 +58,10 @@ const AddReview = () => {
     }
 
     return (
-        <div className='container mx-auto'>
-            <div >
-            <h2 className="text-2xl">Add a Review</h2>
+        <div className='flex  mt-5 justify-center items-center'>
+            <div className='card shadow' >
+          <div className='card-body'>
+            <h2 className="text-xl font-bold">Add a Review</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="form-control w-full max-w-xs">
@@ -157,7 +158,8 @@ const AddReview = () => {
 
                 <input className='btn w-full max-w-xs text-white' type="submit" value="Add" />
             </form>
-        </div>  
+        </div> 
+        </div> 
         </div>
     );
 };

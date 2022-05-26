@@ -12,7 +12,7 @@ const MyProfile = () => {
     console.log(user);
     const {email}=user;
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://dry-fjord-32363.herokuapp.com//user/${email}`, {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://dry-fjord-32363.herokuapp.com/user/${email}`, {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -54,16 +54,18 @@ const MyProfile = () => {
     }
 
     return (
-        <div className=' flex  mt-5 justify-center items-center'>
+        <div className='grid lg:grid-cols-2 mt-5  grid-cols-1 gap-2'>
+        <div className=' '>
             <div className='card shadow-xl w-96'>
                 <div className='card-body'>
-                    <img src={user.photoURL} alt="" />
-           <p><b>Name:</b> {user.displayName}</p>
-           <p><b>Email:</b>  {user.email}</p>
-           <p><b>Eduction: </b>{users.education}</p>
-           <p><b>Location: </b>{users.location}</p>
-           <p><b>Phone: </b>{users.phone}</p>
-           <p><b>Linkedin:</b>{users.linkedin}</p>
+                    <img src={user?.photoURL} alt="" />
+           <p><b>Name:</b> {user?.displayName}</p>
+           <p><b>Email:</b>  {user?.email}</p>
+           <p><b>Eduction: </b>{users?.education}</p>
+           <p><b>Location: </b>{users?.location}</p>
+           <p><b>Phone: </b>{users?.phone}</p>
+           <p><b>Linkedin:</b><a className='btn btn-link' href="{users?.linkedin}">{users?.linkedin}</a> </p>
+            </div>
             </div>
             </div>
             {/* <div className='ml-2 card shadow-xl w-96'>
@@ -73,8 +75,9 @@ const MyProfile = () => {
            <p><b>Email:</b>  {user.email}</p>
             </div>
             </div> */}
-               <div className='card shadow-xl ml-10 w-96'>
-                <div className='card-body'></div>   
+            <div>
+               <div className='card shadow-xl  w-96'>
+                <div className='card-body'> 
             <form className='ml-5' onSubmit={handleSubmit(onSubmit)}>
            
 <div className="form-control  w-full max-w-xs">
@@ -161,13 +164,13 @@ const MyProfile = () => {
 
 
 
-<input className='btn w-full max-w-xs text-white' type="submit" value="Add" />
+<input className='btn w-full max-w-xs text-white' type="submit" value="Update" />
 </form>
 
-
+</div>  
         </div>
         </div>
-        
+        </div>
     );
 };
 

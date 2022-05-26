@@ -14,7 +14,7 @@ const Purchase = () => {
     const [available,setAvailable]=useState('');
     const [prices,setPrices]=useState('')
     useEffect(() => {
-        fetch(`https://dry-fjord-32363.herokuapp.com//part/${id}`)
+        fetch(`https://dry-fjord-32363.herokuapp.com/part/${id}`)
             .then(res => res.json())
             .then(data =>{ setPurchase(data)
             setQuantity(data.minimumQuantity)

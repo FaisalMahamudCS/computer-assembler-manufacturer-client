@@ -102,6 +102,7 @@ const deleteItem=(_id)=>{
                         <th>Price</th>
                         <th>Product Name</th>
                         <th>Payment </th>
+                        
                        
                     </tr>
                 </thead>
@@ -109,16 +110,21 @@ const deleteItem=(_id)=>{
                     {
                         
                         myOrder.map((order, index) => <tr key={order._id}>
-                            <th>{order._id}</th>
+                            <td>{order._id}</td>
                             <td>{order.quantity}</td>
                             <td>{order.price}</td>
                             <td>{order.productName}</td>
                             
                             <td>
-                                {(order.price && !order.paid) &&<> <Link to={`/dashboard/payment/${order._id}`}><button className='btn  btn-success '>pay</button></Link><button className='ml-3 btn btn-error' onClick={()=>handleDelete(order._id)} >Delete</button><label for="delete-confirm-modal" class="btn modal-button">open modal</label>  <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
+                                {(order.price && !order.paid) &&<> <Link to={`/dashboard/payment/${order._id}`}>
+   <button className='btn  btn-success '>Pay</button>
+   <label for="delete-confirm-modal" class=" btn btn-error">Delete</label> 
+                            <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
+                                    </Link>
+                                   
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                    <h3 class="font-bold text-lg text-red-500">Are you sure you want to delete {order.productName} !</h3>
+                    <h3 class="font-bold text-lg text-red-500">Are you sure you want to delete !</h3>
                    
                     <div class="modal-action">
                     <button onClick={() => handleDelete(order._id)} class="btn btn-xs btn-error">Delete</button>
@@ -130,7 +136,9 @@ const deleteItem=(_id)=>{
                                     <p><span className='text-success'>Paid</span></p>
                                     <p>Transaction id: <span className='text-success'>{order.transactionId}</span></p>
                                 </div>}
+
                             </td>
+                           
                            
                         </tr>)
                     }
