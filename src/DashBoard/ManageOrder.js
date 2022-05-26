@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import { useQuery } from 'react-query';
 import Loading from '../Loading/Loading'
 const ManageOrder = () => {
-       //const [order, setOrder] = useState([]);
+      
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     const [status,setStatus]=useState('');
