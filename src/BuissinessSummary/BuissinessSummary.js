@@ -1,5 +1,6 @@
 import React from 'react';
 import {FcCustomerSupport} from 'react-icons/fc';
+import {MdOutlineProductionQuantityLimits} from 'react-icons/md';
 const BuissinessSummary = () => {
     return (
         <div className='flex  mt-5 mb-5 justify-center items-center'>
@@ -29,13 +30,13 @@ const BuissinessSummary = () => {
     <div class="stat-figure text-secondary">
       <div class="avatar online">
         <div class="w-16 rounded-full">
-          <img src="https://api.lorem.space/image/face?w=128&h=128" />
+       <MdOutlineProductionQuantityLimits size={70}></MdOutlineProductionQuantityLimits>
         </div>
       </div>
     </div>
-    <div class="stat-value">We manufacture</div>
-    <div class="stat-title">50+ parts</div>
-    <div class="stat-desc text-secondary">31 tasks remaining</div>
+    <div class="stat-title">We manufacture</div>
+    <div class="stat-value text-primary">50+ parts</div>
+    <div class="stat-desc ">10% more than last year</div>
   </div>
   
 </div>
