@@ -4,7 +4,7 @@ import Parts from '../Parts/Parts';
 const Part = () => {
     const [part,setPart]=useState([]);
   
-        fetch('http://localhost:5000/part')
+        fetch('https://dry-fjord-32363.herokuapp.com/part')
         .then(res => res.json())
         .then(data => setPart(data));
   

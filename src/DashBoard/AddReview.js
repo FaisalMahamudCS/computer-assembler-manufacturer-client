@@ -33,7 +33,7 @@ const AddReview = () => {
 
                 }
                
-                fetch('http://localhost:5000/review', {
+                fetch('https://dry-fjord-32363.herokuapp.com/review', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

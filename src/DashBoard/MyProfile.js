@@ -12,7 +12,7 @@ const MyProfile = () => {
     console.log(user);
     const {email}=user;
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/user/${email}`, {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://dry-fjord-32363.herokuapp.com//user/${email}`, {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -29,7 +29,7 @@ const MyProfile = () => {
 
 
         }
-        fetch(`http://localhost:5000/userUpdate/${email}`, {
+        fetch(`https://dry-fjord-32363.herokuapp.com/userUpdate/${email}`, {
         method: 'PUT',
             headers: {
                 'content-type': 'application/json',

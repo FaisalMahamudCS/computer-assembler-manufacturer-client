@@ -31,7 +31,7 @@ const AddProduct = () => {
                     price:data.price
                 }
                
-                fetch('http://localhost:5000/part', {
+                fetch('https://dry-fjord-32363.herokuapp.com/part', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
@@ -60,7 +60,7 @@ const AddProduct = () => {
         <div className='flex  mt-5 justify-center items-center'>
            <div className='card w-96 bg-base-100 shadow-xl'>
             <div  className="card-body" >
-            <h2 className="text-2xl">Add a Review</h2>
+            <h2 className="text-2xl">Add a Product</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="form-control w-full max-w-xs">

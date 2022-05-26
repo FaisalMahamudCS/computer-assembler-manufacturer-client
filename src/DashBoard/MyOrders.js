@@ -12,7 +12,7 @@ const MyOrders = () => {
     const navigate = useNavigate()
 
 
-    const { data: order, isLoading, refetch } = useQuery('myorder', () => fetch(`http://localhost:5000/myorder?email=${user.email}`, {
+    const { data: order, isLoading, refetch } = useQuery('myorder', () => fetch(`https://dry-fjord-32363.herokuapp.com/myorder?email=${user.email}`, {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -27,7 +27,7 @@ const MyOrders = () => {
     
 
         if (user) {
-            fetch(`http://localhost:5000/myorder?email=${user.email}`, {
+            fetch(`https://dry-fjord-32363.herokuapp.com/myorder?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -55,7 +55,7 @@ const MyOrders = () => {
   
 const handleDelete=(id)=>{
    
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://dry-fjord-32363.herokuapp.com/order/${id}`, {
         method: 'DELETE',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

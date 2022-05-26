@@ -5,7 +5,7 @@ import Professionals from '../Professionals/Professionals';
 const Professional = () => {
     const [professional,setProfessional]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/professional')
+        fetch('https://dry-fjord-32363.herokuapp.com/professional')
         .then(res => res.json())
         .then(data => setProfessional(data));
       
