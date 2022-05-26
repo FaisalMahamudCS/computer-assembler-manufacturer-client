@@ -4,28 +4,18 @@ import { ToastContainer, toast } from 'react-toastify'
 import Loading from '../Loading/Loading'
 const ManageProduct = () => {
   
-    const { data: parts, isLoading, refetch } = useQuery('parts', () => fetch(`https://dry-fjord-32363.herokuapp.com/part`, {
-        // headers: {
-        //     authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        // }
-    }).then(res => {
-        
-        res.json()
     
-    }));
     const [part,setPart]=useState([]);
       
         fetch('https://dry-fjord-32363.herokuapp.com/part')
         .then(res => res.json())
         .then(data => setPart(data));
     
-    if(isLoading){
-        return <Loading></Loading>
-    }
+  
  
     const handleDelete=(id)=>{
    
-        fetch(`http://localhost:5000/part/${id}`, {
+        fetch(`https://dry-fjord-32363.herokuapp.com/part/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
