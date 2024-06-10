@@ -4,7 +4,7 @@ import Reviews from '../Reviews/Reviews';
 const Review = () => {
     const [review,setReview]=useState([]);
     useEffect(()=>{
-        fetch('process.env.REACT_APP_URL/review')
+        fetch(`${process.env.REACT_APP_URL}/api/products/reviews`)
         .then(res => res.json())
         .then(data => setReview(data));
       
