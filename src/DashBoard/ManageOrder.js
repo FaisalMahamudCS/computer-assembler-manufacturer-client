@@ -12,7 +12,7 @@ const ManageOrder = () => {
     const navigate = useNavigate();
     const [status,setStatus]=useState('');
 
-    const { data: order, isLoading, refetch } = useQuery('order', () => fetch('https://dry-fjord-32363.herokuapp.com/order', {
+    const { data: order, isLoading, refetch } = useQuery('order', () => fetch('process.env.REACT_APP_URL/order', {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -55,7 +55,7 @@ const ManageOrder = () => {
   
 const handleDelete=(id)=>{
    
-    fetch(`https://dry-fjord-32363.herokuapp.com/order/${id}`, {
+    fetch(`process.env.REACT_APP_URL/order/${id}`, {
         method: 'DELETE',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -91,7 +91,7 @@ const deleteItem=(_id)=>{
 
 }
 const updateStatus=(id)=>{
-    fetch(`https://dry-fjord-32363.herokuapp.com/order/${id}`, {
+    fetch(`process.env.REACT_APP_URL/order/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

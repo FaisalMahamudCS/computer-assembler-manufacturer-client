@@ -4,12 +4,10 @@ import Parts from '../Parts/Parts';
 const Part = () => {
     const [part,setPart]=useState([]);
   
-        fetch('https://dry-fjord-32363.herokuapp.com/part')
+        fetch(`${process.env.REACT_APP_URL}/api/products/all`)
         .then(res => res.json())
         .then(data => setPart(data));
-  
-    
-  
+
     return (
         <div className='container mt-5 mb-10 mx-auto'>
         <div>

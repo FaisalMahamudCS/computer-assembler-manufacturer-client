@@ -14,7 +14,12 @@ const Purchase = () => {
     const [available,setAvailable]=useState('');
     const [prices,setPrices]=useState('')
     useEffect(() => {
-        fetch(`https://dry-fjord-32363.herokuapp.com/part/${id}`)
+        fetch(`process.env.REACT_APP_URL/part/${id}`,{
+          headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        },
+        })
             .then(res => res.json())
             .then(data =>{ setPurchase(data)
             setQuantity(data.minimumQuantity)
@@ -39,11 +44,12 @@ const Purchase = () => {
             status:'pending'
         }
 
-        fetch('https://dry-fjord-32363.herokuapp.com/purchase', {
+        fetch('process.env.REACT_APP_URL/purchase', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
-            },
+              'content-type': 'application/json',
+              authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          },
             body: JSON.stringify(purchase)
         })
             .then(res => res.json())
@@ -54,7 +60,7 @@ const Purchase = () => {
                   const availables=available-quantity;
                  const availableQuantit={availables};
           
-                  fetch(`https://dry-fjord-32363.herokuapp.com/purchaseUpdate/${id}`, {
+                  fetch(`process.env.REACT_APP_URL/purchaseUpdate/${id}`, {
                     method: 'PUT',
                         headers: {
                             'content-type': 'application/json',

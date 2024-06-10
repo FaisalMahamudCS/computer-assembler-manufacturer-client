@@ -5,7 +5,7 @@ import Services from '../Services/Services';
 const Service = () => {
     const [service,setService]=useState([]);
     useEffect(()=>{
-        fetch('https://dry-fjord-32363.herokuapp.com/service')
+        fetch('process.env.REACT_APP_URL/service')
         .then(res => res.json())
         .then(data => setService(data));
       

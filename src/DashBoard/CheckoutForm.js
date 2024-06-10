@@ -13,7 +13,7 @@ const CheckoutForm = ({order}) => {
 
 
     useEffect(() => {
-        fetch('https://dry-fjord-32363.herokuapp.com/create-payment-intent', {
+        fetch('process.env.REACT_APP_URL/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -77,7 +77,7 @@ const CheckoutForm = ({order}) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://dry-fjord-32363.herokuapp.com/order/${_id}`, {
+            fetch(`process.env.REACT_APP_URL/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

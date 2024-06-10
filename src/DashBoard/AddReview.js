@@ -33,7 +33,7 @@ const AddReview = () => {
 
                 }
                
-                fetch('https://dry-fjord-32363.herokuapp.com/review', {
+                fetch('process.env.REACT_APP_URL/review', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
