@@ -12,7 +12,7 @@ const MyProfile = () => {
     console.log(user);
     const {email}=user;
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`process.env.REACT_APP_URL/user/${email}`, {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`${process.env.REACT_APP_URL}api//user/${email}`, {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
