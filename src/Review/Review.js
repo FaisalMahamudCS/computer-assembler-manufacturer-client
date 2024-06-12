@@ -8,7 +8,7 @@ const Review = () => {
         .then(res => res.json())
         .then(data => setReview(data));
       
-    })
+    },[])
     return (
         <div className='container mx-auto'>
             

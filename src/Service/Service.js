@@ -9,7 +9,7 @@ const Service = () => {
         .then(res => res.json())
         .then(data => setService(data));
       
-    })
+    },[])
     return (
         <div className='mt-3'>
      <h2 className='text-center text-2xl '>Service We Provide</h2>

@@ -14,7 +14,7 @@ const Purchase = () => {
     const [available,setAvailable]=useState('');
     const [prices,setPrices]=useState('')
     useEffect(() => {
-        fetch(`process.env.REACT_APP_URL/part/${id}`,{
+        fetch(`${process.env.REACT_APP_URL}/api/products/${id}`,{
           headers: {
             'content-type': 'application/json',
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -44,7 +44,7 @@ const Purchase = () => {
             status:'pending'
         }
 
-        fetch('process.env.REACT_APP_URL/purchase', {
+        fetch(`${process.env.REACT_APP_URL}/api/products/purchase`, {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
@@ -54,30 +54,33 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.success){
+              console.log("Data",data)
+                 if(data){
                   setAvailable(available-quantity);
                   console.log(available-quantity);
                   const availables=available-quantity;
-                 const availableQuantit={availables};
+                 const availableQuantity={availables};
           
-                  fetch(`process.env.REACT_APP_URL/purchaseUpdate/${id}`, {
+                  fetch(`${process.env.REACT_APP_URL}/api/products/restock/${id}`, {
                     method: 'PUT',
                         headers: {
                             'content-type': 'application/json',
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`
                         },
-                        body: JSON.stringify(availableQuantit)
+                        body: JSON.stringify(availableQuantity)
                     })
-                    .then(res =>res.json())
-                    .then(inserted =>{
-                        if(inserted.modifiedCount){
-                            toast.success('profile edited successfully')
-                        
-                        }
-                        else{
-                            toast.error('Failed profile edit');
-                        }
-                    })
+                    .then(res =>{
+                      if(res.ok){
+                        toast.success('profile edited successfully')
+  
+                      }
+                      else{
+                        toast.error('Failed profile edit');
+
+                      }
+                      res.json()
+                })
+                    .then(data=>data)
                     toast('order placed')
                 }
                 else{

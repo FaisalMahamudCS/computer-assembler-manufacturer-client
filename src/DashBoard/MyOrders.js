@@ -27,7 +27,7 @@ const MyOrders = () => {
     
 
         if (user) {
-            fetch(`process.env.REACT_APP_URL/myorder?email=${user.email}`, {
+            fetch(`${process.env.REACT_APP_URL}/api/products/allOrders?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
