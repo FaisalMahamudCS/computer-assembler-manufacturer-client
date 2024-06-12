@@ -13,7 +13,7 @@ const CheckoutForm = ({order}) => {
 
 
     useEffect(() => {
-        fetch('process.env.REACT_APP_URL/create-payment-intent', {
+        fetch(`${process.env.REACT_APP_URL}/api/products/create-payment-intent`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -77,8 +77,8 @@ const CheckoutForm = ({order}) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`process.env.REACT_APP_URL/order/${_id}`, {
-                method: 'PATCH',
+            fetch(`${process.env.REACT_APP_URL}/api/products/order/${_id}`, {
+                method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
