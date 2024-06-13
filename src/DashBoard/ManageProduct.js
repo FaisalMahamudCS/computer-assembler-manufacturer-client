@@ -7,7 +7,7 @@ const ManageProduct = () => {
     
     const [part,setPart]=useState([]);
       
-        fetch('process.env.REACT_APP_URL/part')
+        fetch(`${process.env.REACT_APP_URL}/api/products/all`)
         .then(res => res.json())
         .then(data => setPart(data));
     
@@ -15,7 +15,7 @@ const ManageProduct = () => {
  
     const handleDelete=(id)=>{
    
-        fetch(`process.env.REACT_APP_URL/part/${id}`, {
+        fetch(`${process.env.REACT_APP_URL}/api/products/product/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

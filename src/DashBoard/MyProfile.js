@@ -29,7 +29,7 @@ const MyProfile = () => {
 
 
         }
-        fetch(`process.env.REACT_APP_URL/userUpdate/${email}`, {
+        fetch(`${process.env.REACT_APP_URL}/userUpdate/${email}`, {
         method: 'PUT',
             headers: {
                 'content-type': 'application/json',
