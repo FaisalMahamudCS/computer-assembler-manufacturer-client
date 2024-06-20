@@ -5,11 +5,11 @@ import Services from '../Services/Services';
 const Service = () => {
     const [service,setService]=useState([]);
     useEffect(()=>{
-        fetch('https://dry-fjord-32363.herokuapp.com/service')
+        fetch(`${process.env.REACT_APP_URL}/api/products/service`)
         .then(res => res.json())
         .then(data => setService(data));
       
-    })
+    },[])
     return (
         <div className='mt-3'>
      <h2 className='text-center text-2xl '>Service We Provide</h2>

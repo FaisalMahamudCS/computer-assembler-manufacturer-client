@@ -33,7 +33,7 @@ const AddReview = () => {
 
                 }
                
-                fetch('https://dry-fjord-32363.herokuapp.com/review', {
+                fetch(`${process.env.REACT_APP_URL}/api/products/add/review`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
@@ -41,16 +41,31 @@ const AddReview = () => {
                     },
                     body: JSON.stringify(review)
                 })
-                .then(res =>res.json())
-                .then(inserted =>{
-                    if(inserted.insertedId){
+                .then(res =>{
+                    if(res.ok){
                         toast.success('Review added successfully')
                         reset();
+                            
                     }
-                    else{
+                    else {
                         toast.error('Failed to add the Review');
+
                     }
-                })
+                return    res.json()
+            })
+                .then(
+                
+                //     inserted =>{
+
+                //     if(inserted.insertedId){
+                //         toast.success('Review added successfully')
+                //         reset();
+                //     }
+                //     else{
+                //         toast.error('Failed to add the Review');
+                //     }
+                // }
+            )
 
             }
             

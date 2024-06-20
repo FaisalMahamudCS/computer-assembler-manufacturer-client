@@ -31,7 +31,7 @@ const AddProduct = () => {
                     price:data.price
                 }
                
-                fetch('https://dry-fjord-32363.herokuapp.com/part', {
+                fetch('process.env.REACT_APP_URL/part', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

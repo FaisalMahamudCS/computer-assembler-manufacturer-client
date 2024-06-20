@@ -10,7 +10,7 @@ const stripePromise = loadStripe('pk_test_51L2a8yGIi5IetcrLOT8S6J6l3hU0Ioh3W25tL
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `https://dry-fjord-32363.herokuapp.com/order/${id}`;
+    const url = `${process.env.REACT_APP_URL}/api/products/order/${id}`;
 
     const { data: order, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',

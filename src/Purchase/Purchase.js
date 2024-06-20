@@ -14,7 +14,12 @@ const Purchase = () => {
     const [available,setAvailable]=useState('');
     const [prices,setPrices]=useState('')
     useEffect(() => {
-        fetch(`https://dry-fjord-32363.herokuapp.com/part/${id}`)
+        fetch(`${process.env.REACT_APP_URL}/api/products/${id}`,{
+          headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        },
+        })
             .then(res => res.json())
             .then(data =>{ setPurchase(data)
             setQuantity(data.minimumQuantity)
@@ -39,39 +44,43 @@ const Purchase = () => {
             status:'pending'
         }
 
-        fetch('https://dry-fjord-32363.herokuapp.com/purchase', {
+        fetch(`${process.env.REACT_APP_URL}/api/products/purchase`, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
-            },
+              'content-type': 'application/json',
+              authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          },
             body: JSON.stringify(purchase)
         })
             .then(res => res.json())
             .then(data => {
-                if(data.success){
+              console.log("Data",data)
+                 if(data){
                   setAvailable(available-quantity);
                   console.log(available-quantity);
                   const availables=available-quantity;
-                 const availableQuantit={availables};
+                 const availableQuantity={availables};
           
-                  fetch(`https://dry-fjord-32363.herokuapp.com/purchaseUpdate/${id}`, {
+                  fetch(`${process.env.REACT_APP_URL}/api/products/restock/${id}`, {
                     method: 'PUT',
                         headers: {
                             'content-type': 'application/json',
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`
                         },
-                        body: JSON.stringify(availableQuantit)
+                        body: JSON.stringify(availableQuantity)
                     })
-                    .then(res =>res.json())
-                    .then(inserted =>{
-                        if(inserted.modifiedCount){
-                            toast.success('profile edited successfully')
-                        
-                        }
-                        else{
-                            toast.error('Failed profile edit');
-                        }
-                    })
+                    .then(res =>{
+                      if(res.ok){
+                        toast.success('profile edited successfully')
+  
+                      }
+                      else{
+                        toast.error('Failed profile edit');
+
+                      }
+                      res.json()
+                })
+                    .then(data=>data)
                     toast('order placed')
                 }
                 else{
